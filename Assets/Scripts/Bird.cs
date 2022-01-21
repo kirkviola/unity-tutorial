@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Bird : MonoBehaviour
 {
+    // SerializeField allows changing in Unity editor
     [SerializeField] float _launchForce = 500;
+    [SerializeField] float _maxDragDistance = 5;
     private Vector2 _startPosition;
     private Rigidbody2D _rigidBody;
     private SpriteRenderer _spriteRenderer;
@@ -40,8 +42,25 @@ public class Bird : MonoBehaviour
 
     private void OnMouseDrag()
     {
+        // Gets position of mouse on main camera screen
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new Vector3(mousePosition.x, mousePosition.y, transform.position.z);
+
+        Vector2 desiredPosition = mousePosition;
+
+        float distance = Vector2.Distance(desiredPosition, _startPosition);
+
+        if(distance > this._maxDragDistance)
+        {
+            Vector2 direction = desiredPosition - this._startPosition;
+            direction.Normalize();
+            desiredPosition = _startPosition + direction * _maxDragDistance;
+        }
+
+
+        desiredPosition.x = desiredPosition.x > _startPosition.x
+            ? _startPosition.x : desiredPosition.x;
+
+        _rigidBody.position = desiredPosition;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
