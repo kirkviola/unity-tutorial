@@ -409,6 +409,7 @@ GameObject:
   - component: {fileID: 2059244106}
   - component: {fileID: 2059244108}
   - component: {fileID: 2059244109}
+  - component: {fileID: 2059244110}
   m_Layer: 0
   m_Name: BeekRedOpen1
   m_TagString: Untagged
@@ -554,3 +555,22 @@ PolygonCollider2D:
       - {x: 0.26, y: -0.31}
       - {x: 0.26, y: -0.24}
       - {x: 0.5, y: -0.17999999}
+--- !u!95 &2059244110
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059244105}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f67b1d57e243b6d4d930ac5c62c43ae1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
